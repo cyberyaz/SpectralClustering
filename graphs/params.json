@@ -1,0 +1,6 @@
+{
+  "moons": {
+    "n_neighbors": 10,
+    "sigma": "median_neighbor_distance"
+  }
+}
