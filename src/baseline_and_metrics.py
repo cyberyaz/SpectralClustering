@@ -2,6 +2,7 @@ import numpy as np
 import csv
 from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
 from sklearn.mixture import GaussianMixture
+import numpy as np, csv
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score, silhouette_score
 
 # SPECTRAL
@@ -50,6 +51,15 @@ with open("results/metrics.csv", "w", newline="") as f:
 kmean_diff = 100.0 * np.mean(y_spec != y_kmeans)
 gm_diff = 100.0 * np.mean(y_spec != y_gm)
 agg_diff = 100.0 * np.mean(y_spec != y_agg)
+
+with open("results/metrics.csv", "w", newline="") as f:
+    w = csv.writer(f)
+    w.writerow(["Method", "ARI", "NMI", "Silhouette"])
+    w.writerow(["Spectral", ari_s, nmi_s, sil_s])
+    w.writerow(["KMeans_raw", ari_k, nmi_k, sil_k])
+
+
+pct_diff = 100.0 * np.mean(y_spec != y_kmeans)
 with open("results/differences.txt", "w") as f:
     f.write(f"% of points clustered differently (Spectral vs KMeans): {kmean_diff:.2f}%\n")
     f.write(f"% of points clustered differently (Spectral vs Gaussian Mix): {gm_diff:.2f}%\n")
