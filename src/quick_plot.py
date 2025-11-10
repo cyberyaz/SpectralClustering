@@ -1,8 +1,7 @@
-# src/quick_plot.py
-# Auto-install matplotlib into the current interpreter, use a safe backend, then plot.
+
 import numpy as np
 import matplotlib
-matplotlib.use("Agg")  # safe non-GUI backend for VSCode
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 X = np.load("data/X_moons.npy")
