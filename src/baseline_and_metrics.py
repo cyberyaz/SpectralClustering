@@ -21,6 +21,13 @@ y_gm = gm.fit_predict(X)
 agg = AgglomerativeClustering(n_clusters=2, linkage='single')
 y_agg = agg.fit_predict(X)
 
+# Adjusted random score: compares predicted clustering to ground truth clustering
+#                        and adjusts for randomness (some points will recieve the
+#                        correct label even if labeled randomly)
+# Normalized mutual info score: just finds the percentage of common points between
+#                               the two clusters (similar to adjusted random, but
+#                                does not adjust for randomness)
+# Silhouette score: compares each datapoint to its cluster
 def scores(y_true, y_pred):
     return (
         adjusted_rand_score(y_true, y_pred),
