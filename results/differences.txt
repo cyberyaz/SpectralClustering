@@ -1,1 +1,3 @@
 % of points clustered differently (Spectral vs KMeans): 24.83%
+% of points clustered differently (Spectral vs Gaussian Mix): 15.17%
+% of points clustered differently (Spectral vs Agglomerative): 0.00%
